@@ -1,14 +1,20 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Properties;
-import java.io.*;
 
 public class Mainline {
 
@@ -31,10 +37,10 @@ public class Mainline {
 		 selectStudent(999);
 
 		 //Create list of queries needed to recover student table
-		ArrayList<String> studentRecoveryQueries = backupStudent();
+		 ArrayList<String> studentRecoveryQueries = backupStudent();
 		
 		// Use list to write an sql file
-		writeListToFile(studentRecoveryQueries);
+		//writeListToFile(studentRecoveryQueries);
 		
 		// Recover student table using file
 		//recoverStudentTable();
@@ -221,5 +227,64 @@ public class Mainline {
 
 		return insertQueries;
 	}
+	
+//	// BACKUP TABLE GIVEN TABLE NAME (incomplete)
+//	public ArrayList<String> backup(String table) throws SQLException {
+//		
+//		ArrayList<String> insertQueries = new ArrayList<String>();
+//		
+//		try {
+//		    Properties props = new Properties();
+//		    props.load(new FileInputStream("db.properties"));
+//		    String username = props.getProperty("user");
+//		    String password = props.getProperty("password");
+//		    String url = props.getProperty("dburl");
+//		    conn = DriverManager.getConnection(url, username, password);
+//		    stat = conn.createStatement();
+//		    rs = stat.executeQuery("SELECT * FROM " + table);
+//		
+//		    ResultSetMetaData rsmd = rs.getMetaData();
+//		    HashMap<String, Integer> typeMap =  new HashMap<>();
+//		    
+//		    int columnCount = rsmd.getColumnCount();
+//		    
+//		    for (int i = 1; i <= columnCount; i++) {
+//		    	
+//		    	if(rsmd.getColumnTypeName(i) == "VARCHAR") {
+//		    		typeMap.put(rsmd.getColumnName(i),1);
+//		    	} else if(rsmd.getColumnTypeName(i) == "DATE") {
+//		    		typeMap.put(rsmd.getColumnName(i),1);
+//		    	} else if (rsmd.getColumnTypeName(i) == "INT") {
+//		    		typeMap.put(rsmd.getColumnName(i), 0);
+//		    	} else if (rsmd.getColumnTypeName(i) == "DECIMAL") {
+//		    		typeMap.put(rsmd.getColumnName(i), 0);
+//		    	}
+//		    	
+//		    	
+//		    }
+//		    
+//		    
+//
+//		    while (rs.next()) {
+//		    }
+//	    } catch (SQLException e) {
+//		    e.printStackTrace();
+//	     } catch (FileNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} finally {
+//		    if (conn != null)
+//			conn.close();
+//		    if (stat != null)
+//			stat.close();
+//		    if (rs != null)
+//			rs.close();
+//	    }
+//		
+//		return insertQueries;
+//	}
 
 }
