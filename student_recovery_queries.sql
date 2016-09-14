@@ -1,0 +1,10 @@
+INSERT student (id,first_name,last_name,gpa,sat,major_id) values (100,'Eric','Ephram',4.0,1600,1);
+INSERT student (id,first_name,last_name,gpa,sat,major_id) values (110,'Greg','Gould',3.5,860,2);
+INSERT student (id,first_name,last_name,gpa,sat,major_id) values (120,'Adam','Ant',3.9,0,3);
+INSERT student (id,first_name,last_name,gpa,sat,major_id) values (130,'Howard','Hess',2.6,745,4);
+INSERT student (id,first_name,last_name,gpa,sat,major_id) values (140,'Charles','Caldwell',3.2,1200,5);
+INSERT student (id,first_name,last_name,gpa,sat,major_id) values (150,'James','Joyce',4.0,1350,6);
+INSERT student (id,first_name,last_name,gpa,sat,major_id) values (160,'Doug','Dumas',1.2,1300,7);
+INSERT student (id,first_name,last_name,gpa,sat,major_id) values (170,'Kevin','Kraft',4.0,1050,4);
+INSERT student (id,first_name,last_name,gpa,sat,major_id) values (180,'Frank','Fountain',2.1,880,2);
+INSERT student (id,first_name,last_name,gpa,sat,major_id) values (190,'Brian','Biggs',4.0,750,6);
